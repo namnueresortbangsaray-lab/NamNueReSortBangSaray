@@ -97,7 +97,7 @@ h6 {
 
 .hero-section {
   position: relative;
-  background: url('img/BGNamNueResort.webp') no-repeat center center/cover;
+  background: url('/img/bgnamnueresort.webp') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@ h6 {
 /* Phones and small tablets never need the full 1920px hero (473 KB) - serve 1280px (190 KB) */
 @media (max-width: 900px) {
   .hero-section {
-    background-image: url('img/BGNamNueResort-1280.webp');
+    background-image: url('/img/bgnamnueresort-1280.webp');
   }
 }
 
