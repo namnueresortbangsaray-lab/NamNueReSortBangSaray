@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>น้ำเหนือรีสอร์ทบางเสร่</title>
+  <link rel="icon" type="image/x-icon" href="img/IconHeadWeb.webp">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top custom-navbar" data-bs-theme="light" data-aos="fade-down">
+    <div class="container">
+      <a class="navbar-brand" style="color: #38a800;" href="#">น้ำเหนือรีสอร์ทบางเสร่</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">หน้าแรก</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rooms">ห้องพัก</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#facilities">สิ่งอำนวยความสะดวก</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">แกลเลอรี่</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ContactRoom">ติดต่อห้องพัก</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Attractions">แหล่งท่องเที่ยวใกล้รีสอร์ท</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header id="home" class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center align-items-center" style="min-height: 100vh;" data-aos="zoom-in">
+        <div class="col-12 col-md-10">
+          <div class="mx-auto mb-4"
+            style="background: url('img/Logoน้ำเหนือรีสอร์ท.webp') no-repeat center center/contain; width: 100%; height: 250px;">
+          </div>
+          <div class="hero-buttons" data-aos="fade-up">
+            <a href="#rooms" class="btn btn-lux-green btn-lg mt-4"><i class="bi bi-search"></i> สำรวจห้องพัก</a>
+            <a href="#ContactRoom" class="btn btn-outline-light btn-lg mt-4"><i class="bi bi-calendar3-week"></i>
+              จองห้องพัก</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="rooms" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up"><i class="bi bi-house-fill"></i> ห้องพักของเรา</h2>
+      <!-- แถวที่ 1: ห้องพักมาตรฐาน (4 ห้อง เต็ม 4 คอลัมน์) -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
+        <div class="col" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <img src="img/เตียงเดี่ยว/AA9.webp" srcset="img/เตียงเดี่ยว/AA9-480.webp 480w, img/เตียงเดี่ยว/AA9-960.webp 960w, img/เตียงเดี่ยว/AA9.webp 1600w" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" class="card-img-top" alt="ห้องเตียงเดี่ยว" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                <h4 class="card-title mb-0" style="color: var(--text-dark); font-weight: 700;">ห้องเตียงเดี่ยว</h4>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">400฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 2 ท่าน</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_alone.html" class="btn btn-eco mt-auto"><i class="bi bi-arrow-right"></i>
+                ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <img src="img/เตียงคู่/AAA12.webp" srcset="img/เตียงคู่/AAA12-480.webp 480w, img/เตียงคู่/AAA12-960.webp 960w, img/เตียงคู่/AAA12.webp 1600w" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" class="card-img-top" alt="ห้องเตียงคู่" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                <h4 class="card-title mb-0" style="color: var(--text-dark); font-weight: 700;">ห้องเตียงคู่</h4>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">500฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 2 ท่าน</p>
+              <p class="card-text"><i class="bi bi-house-add"></i> ที่นอนเสริม</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_Duo.html" class="btn btn-eco mt-auto"><i
+                  class="bi bi-arrow-right"></i>ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <img src="img/เตียงคู่/AA1.webp" srcset="img/เตียงคู่/AA1-480.webp 480w, img/เตียงคู่/AA1-960.webp 960w, img/เตียงคู่/AA1.webp 1600w" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" class="card-img-top" alt="ห้องเตียงคู่" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                <h4 class="card-title mb-0" style="color: var(--text-dark); font-weight: 700;">ห้องเตียงคู่</h4>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">600฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 3 ท่าน</p>
+              <p class="card-text"><i class="bi bi-house-add"></i> ที่นอนเสริม</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_Tripple.html" class="btn btn-eco mt-auto"><i
+                  class="bi bi-arrow-right"></i>ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="400">
+          <div class="card h-100">
+            <img src="img/บ้านใหญ่/B2.webp" class="card-img-top" alt="ห้องเตียงใหญ่" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                <h4 class="card-title mb-0" style="color: var(--text-dark); font-weight: 700;">ห้องเตียงใหญ่</h4>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">800฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 3-4 ท่าน</p>
+              <p class="card-text"><i class="bi bi-house-add"></i> ที่นอนเสริม</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_HomeBig.html" class="btn btn-eco mt-auto"><i
+                  class="bi bi-arrow-right"></i>ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- แถวที่ 2: ห้องพักมินิมอล (3 ห้อง เต็ม 3 คอลัมน์) -->
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4 justify-content-center">
+        <div class="col" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <img src="img/มินิมอล/C4.webp" class="card-img-top" alt="ห้องมินิมอล" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                  <h4 class="card-title mb-1" style="color: var(--text-dark); font-weight: 700;">ห้องมินิมอล</h4>
+                  <h6 class="text-muted mb-0">(ห้อง C1)</h6>
+                </div>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">600฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 2 ท่าน</p>
+              <p class="card-text"><i class="bi bi-star"></i> ห้องพักสไตล์มินิมอลเรียบง่าย</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_Minimals.html" class="btn btn-eco mt-auto"><i
+                  class="bi bi-arrow-right"></i>ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <img src="img/มินิมอล/C7.webp" class="card-img-top" alt="ห้องมินิมอล" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                  <h4 class="card-title mb-1" style="color: var(--text-dark); font-weight: 700;">ห้องมินิมอล</h4>
+                  <h6 class="text-muted mb-0">(ห้อง C2)</h6>
+                </div>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">600฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 2 ท่าน</p>
+              <p class="card-text"><i class="bi bi-star"></i> ห้องพักสไตล์มินิมอลเรียบง่าย</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_Minimals_C2.html" class="btn btn-eco mt-auto"><i
+                  class="bi bi-arrow-right"></i>ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <img src="img/C3/C3-room2.webp" srcset="img/C3/C3-room2-480.webp 480w, img/C3/C3-room2-960.webp 960w, img/C3/C3-room2.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="card-img-top" alt="ห้องมินิมอล (ห้อง C3)" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                  <h4 class="card-title mb-1" style="color: var(--text-dark); font-weight: 700;">ห้องมินิมอล</h4>
+                  <h6 class="text-muted mb-0">(ห้อง C3)</h6>
+                </div>
+                <span class="badge rounded-pill"
+                  style="background: rgba(56, 168, 0, 0.1); color: var(--primary-color); font-size: 0.95rem; font-weight: 500; padding: 8px 16px;">600฿
+                  / คืน</span>
+              </div>
+              <p class="card-text"><i class="bi-house-door"></i> พักได้ 2 ท่าน</p>
+              <p class="card-text"><i class="bi bi-star"></i> ห้องพักสไตล์มินิมอลเรียบง่าย</p>
+              <p class="card-text"><i class="bi bi-wind"></i> มีแอร์ ตู้เย็น TV เครื่องทำน้ำอุ่น</p>
+              <p class="card-text"><i class="bi bi-wifi"></i> Free WiFi</p>
+              <a href="RoomDetails_Type/Room_Details_Minimals_C3.html" class="btn btn-eco mt-auto"><i
+                  class="bi bi-arrow-right"></i>ดูรายละเอียด</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="facilities" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up"><i class="bi bi-stars"></i> สิ่งอำนวยความสะดวก</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-wifi"></i>
+            </div>
+            <h5>ฟรี Wi-Fi</h5>
+            <p>อินเทอร์เน็ตความเร็วสูงทั่วทั้งรีสอร์ท</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-droplet"></i>
+            </div>
+            <h5>เครื่องทำน้ำอุ่น</h5>
+            <p>เครื่องทำน้ำอุ่น อุ่นสบาย เติมเต็มความสุขในวันพักผ่อน</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-egg-fried"></i>
+            </div>
+            <h5>อาหารตามสั่ง</h5>
+            <p>บริการอาหารตามสั่ง อร่อยทุกเมนู เข้าพัก อยากกินอะไร...สั่งเลย!</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-car-front-fill"></i>
+            </div>
+            <h5>ที่จอดรถ</h5>
+            <p>พื้นที่จอดรถกว้างขวางและปลอดภัย</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-cup-hot"></i>
+            </div>
+            <h5>ฟรี กาแฟยามเช้า</h5>
+            <p>กาแฟร้อน ยามเช้าฟรี</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-tree"></i>
+            </div>
+            <h5>ศาลาพักผ่อน</h5>
+            <p>ศาลาพักผ่อนขนาดใหญ่ พื้นที่กว้าง พักผ่อนสบาย ใต้ร่มไม้ธรรมชาติ</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-trash-fill"></i>
+            </div>
+            <h5>ทำความสะอาดรายวัน</h5>
+            <p>บริการทำความสะอาดห้องพักทุกวัน เพื่อความสะอาด</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-shop"></i>
+            </div>
+            <h5>ร้านสะดวกซื้อ</h5>
+            <p>ร้านขายของชำบริเวณรีสอร์ท มีสินค้าจำเป็นครบครัน สะดวกสบายตลอดการเข้าพัก</p>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="facilities-card">
+            <div class="icon-box">
+              <i class="bi bi-camera-video"></i>
+            </div>
+            <h5>กล้องวงจรปิด</h5>
+            <p>ระบบรักษาความปลอดภัยด้วยกล้อง CCTV อุ่นใจทุกการเข้าพัก</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up"><i class="bi bi-image-fill"></i> แกลเลอรี่ภาพ</h2>
+
+      <!-- Desktop Grid -->
+      <div class="row g-3 gallery d-none d-md-flex">
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="50">
+          <img src="img/ศาลา/S3.webp" srcset="img/ศาลา/S3-480.webp 480w, img/ศาลา/S3-960.webp 960w, img/ศาลา/S3.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 1" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <img src="img/BG-Website-NamNue.webp" srcset="img/BG-Website-NamNue-480.webp 480w, img/BG-Website-NamNue-960.webp 960w, img/BG-Website-NamNue.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 2" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
+          <img src="img/วิวรีสอร์ท/V2.webp" srcset="img/วิวรีสอร์ท/V2-480.webp 480w, img/วิวรีสอร์ท/V2-960.webp 960w, img/วิวรีสอร์ท/V2.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 3" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <img src="img/วิวรีสอร์ท/V6.webp" srcset="img/วิวรีสอร์ท/V6-480.webp 480w, img/วิวรีสอร์ท/V6-960.webp 960w, img/วิวรีสอร์ท/V6.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 4" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="250">
+          <img src="img/วิวรีสอร์ท/V1.webp" srcset="img/วิวรีสอร์ท/V1-480.webp 480w, img/วิวรีสอร์ท/V1-960.webp 960w, img/วิวรีสอร์ท/V1.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 5" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <img src="img/กิจกรรมต่างๆ/D1.webp" srcset="img/กิจกรรมต่างๆ/D1-480.webp 480w, img/กิจกรรมต่างๆ/D1-960.webp 960w, img/กิจกรรมต่างๆ/D1.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 6" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="350">
+          <img src="img/กิจกรรมต่างๆ/D3.webp" srcset="img/กิจกรรมต่างๆ/D3-480.webp 480w, img/กิจกรรมต่างๆ/D3-960.webp 960w, img/กิจกรรมต่างๆ/D3.webp 1225w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 7" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+          <img src="img/กิจกรรมต่างๆ/D4.webp" srcset="img/กิจกรรมต่างๆ/D4-480.webp 480w, img/กิจกรรมต่างๆ/D4-960.webp 960w, img/กิจกรรมต่างๆ/D4.webp 1225w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 8" loading="lazy" decoding="async">
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="450">
+          <img src="img/กิจกรรมต่างๆ/D5.webp" class="img-fluid rounded shadow" alt="แกลเลอรี่ 9" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- Mobile Carousel -->
+      <div id="galleryCarouselMobile" class="carousel slide d-block d-md-none" data-bs-ride="carousel">
+        <div class="carousel-inner pb-2 gallery">
+          <div class="carousel-item active">
+            <div class="px-2">
+              <img src="img/ศาลา/S3.webp" srcset="img/ศาลา/S3-480.webp 480w, img/ศาลา/S3-960.webp 960w, img/ศาลา/S3.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 1" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/BG-Website-NamNue.webp" srcset="img/BG-Website-NamNue-480.webp 480w, img/BG-Website-NamNue-960.webp 960w, img/BG-Website-NamNue.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 2" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/วิวรีสอร์ท/V2.webp" srcset="img/วิวรีสอร์ท/V2-480.webp 480w, img/วิวรีสอร์ท/V2-960.webp 960w, img/วิวรีสอร์ท/V2.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 3" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/วิวรีสอร์ท/V6.webp" srcset="img/วิวรีสอร์ท/V6-480.webp 480w, img/วิวรีสอร์ท/V6-960.webp 960w, img/วิวรีสอร์ท/V6.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 4" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/วิวรีสอร์ท/V1.webp" srcset="img/วิวรีสอร์ท/V1-480.webp 480w, img/วิวรีสอร์ท/V1-960.webp 960w, img/วิวรีสอร์ท/V1.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 5" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/กิจกรรมต่างๆ/D1.webp" srcset="img/กิจกรรมต่างๆ/D1-480.webp 480w, img/กิจกรรมต่างๆ/D1-960.webp 960w, img/กิจกรรมต่างๆ/D1.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 6" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/กิจกรรมต่างๆ/D3.webp" srcset="img/กิจกรรมต่างๆ/D3-480.webp 480w, img/กิจกรรมต่างๆ/D3-960.webp 960w, img/กิจกรรมต่างๆ/D3.webp 1225w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 7" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/กิจกรรมต่างๆ/D4.webp" srcset="img/กิจกรรมต่างๆ/D4-480.webp 480w, img/กิจกรรมต่างๆ/D4-960.webp 960w, img/กิจกรรมต่างๆ/D4.webp 1225w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="img-fluid rounded shadow" alt="แกลเลอรี่ 8" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="px-2">
+              <img src="img/กิจกรรมต่างๆ/D5.webp" class="img-fluid rounded shadow" alt="แกลเลอรี่ 9" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .carousel-btn-icon-green {
+            background-color: rgba(255, 255, 255, 0.85);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #38a800;
+            transition: all 0.3s;
+          }
+
+          .carousel-control-prev:hover .carousel-btn-icon-green,
+          .carousel-control-next:hover .carousel-btn-icon-green {
+            background-color: #38a800;
+            color: #fff;
+            transform: scale(1.1);
+          }
+        </style>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarouselMobile" data-bs-slide="prev"
+          style="width: 15%;">
+          <div class="carousel-btn-icon-green">
+            <i class="bi bi-chevron-left fs-5" style="margin-left: -2px;"></i>
+          </div>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarouselMobile" data-bs-slide="next"
+          style="width: 15%;">
+          <div class="carousel-btn-icon-green">
+            <i class="bi bi-chevron-right fs-5" style="margin-right: -2px;"></i>
+          </div>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="Attractions" class="py-5 bg-light">
+    <div class="container">
+
+      <!-- Title -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold" style="color: #38a800;">
+          <i class="bi bi-luggage-fill"></i> แหล่งท่องเที่ยวใกล้รีสอร์ท
+        </h2>
+        <p class="text-muted">
+          เลือกชมสถานที่ท่องเที่ยวใกล้เคียง เพื่อวางแผนการพักผ่อน
+        </p>
+      </div>
+
+      <div class="position-relative">
+        <div class="row g-4 attractions-scroll" id="attractionsScrollRow">
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">หาดบางเสร่</h5>
+              <p class="small text-muted mb-3 flex-grow-1">ทะเลเงียบสงบ วิถีชุมชนเรียบง่าย
+                เหมาะกับการมาพักผ่อนแบบสโลว์ไลฟ์</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 3.5 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 5 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=หาดบางเสร่" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">หาดทรายแก้ว</h5>
+              <p class="small text-muted mb-3 flex-grow-1">น้ำทะเลใส หาดทรายขาว บรรยากาศสงบ เหมาะกับวันพักผ่อนแบบชิลๆ
+              </p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 11 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 15 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=หาดทรายแก้ว" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">หาดบ้านอำเภอ</h5>
+              <p class="small text-muted mb-3 flex-grow-1">ทะเลใส บรรยากาศเงียบสงบ เหมาะกับการมาพักผ่อนชิลๆ
+                เดินเล่นรับลมทะเล ดูพระอาทิตย์ตกสวยๆ ได้แบบไม่วุ่นวาย</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 6.5 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 10 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=หาดบ้านอำเภอ" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">หาดสอ</h5>
+              <p class="small text-muted mb-3 flex-grow-1">ทะเลน้ำใส หาดทรายขาวสะอาด บรรยากาศเงียบสงบ
+                เหมาะกับวันพักผ่อนแบบเต็มที่</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 14.5 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 20 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=หาดสอ" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">เขาชีจรรย์</h5>
+              <p class="small text-muted mb-3 flex-grow-1">พระพุทธรูปแกะสลักบนหน้าผาทองคำ ศูนย์รวมศรัทธาและธรรมชาติ</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 8 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 12 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=เขาชีจรรย์" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">วิหารเซียน</h5>
+              <p class="small text-muted mb-3 flex-grow-1">พิพิธภัณฑ์ศิลปะจีนโบราณ ศูนย์กลางวัฒนธรรมจีน-ไทย</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 7.5 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 12 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=วิหารเซียน" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">สวนนงนุช</h5>
+              <p class="small text-muted mb-3 flex-grow-1">สวนพฤกษศาสตร์ระดับโลก พร้อมการแสดงวัฒนธรรมและโชว์ช้าง</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 2.2 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 5 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=สวนนงนุช" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">สวนน้ำโคลัมเบีย พิคเจอร์ส อควาเวิร์ส</h5>
+              <p class="small text-muted mb-3 flex-grow-1">สวนน้ำธีมภาพยนตร์ระดับโลก
+                มันส์สุดเหวี่ยงกับเครื่องเล่นหลากหลาย
+              </p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 3.2 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 6 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=Columbia Pictures Aquaverse" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="attraction-card p-4 h-100 d-flex flex-column">
+              <h5 style="color: #0e3201; font-weight: 600;">สวนน้ำรามายณะ</h5>
+              <p class="small text-muted mb-3 flex-grow-1">สวนน้ำขนาดใหญ่ที่สุดในไทย
+                สนุกกับสไลเดอร์และเครื่องเล่นมาตรฐานโลก</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                <div class="small fw-medium" style="color: #38a800;">
+                  <i class="bi bi-geo-fill"></i> 8.7 กม.
+                  <span class="ms-2"><i class="bi bi-car-front-fill"></i> 15 นาที</span>
+                </div>
+                <a href="https://maps.google.com/?q=สวนน้ำรามายณะ" target="_blank"
+                  class="btn btn-outline-success btn-sm rounded-pill px-3">
+                  <i class="bi bi-geo-alt"></i> ดูแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Scroll Buttons -->
+        <button class="carousel-control-prev d-md-none border-0 bg-transparent" type="button"
+          onclick="document.getElementById('attractionsScrollRow').scrollBy({left: -280, behavior: 'smooth'})"
+          style="top: 50%; transform: translateY(-50%); width: auto; left: 0px; bottom: auto; z-index: 10; opacity: 1;">
+          <div class="carousel-btn-icon-green">
+            <i class="bi bi-chevron-left fs-5" style="margin-left: -2px;"></i>
+          </div>
+        </button>
+        <button class="carousel-control-next d-md-none border-0 bg-transparent" type="button"
+          onclick="document.getElementById('attractionsScrollRow').scrollBy({left: 280, behavior: 'smooth'})"
+          style="top: 50%; transform: translateY(-50%); width: auto; right: 0px; bottom: auto; z-index: 10; opacity: 1;">
+          <div class="carousel-btn-icon-green">
+            <i class="bi bi-chevron-right fs-5" style="margin-right: -2px;"></i>
+          </div>
+        </button>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="text-center mt-5 mb-2">
+        <small class="text-muted bg-white px-3 py-2 rounded-pill shadow-sm">
+          <i class="bi bi-info-circle text-primary" style="color: #38a800 !important;"></i>
+          ข้อมูลสถานที่ท่องเที่ยวเป็นเพียงการแนะนำเบื้องต้น กรุณาตรวจสอบรายละเอียดกับสถานที่โดยตรง
+        </small>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="ContactRoom" class="contact-section">
+    <div class="container text-center">
+
+      <!-- Title -->
+      <div class="contact-header mb-5">
+        <i class="bi bi-phone contact-icon"></i>
+        <h2 class="contact-title">ติดต่อห้องพัก</h2>
+        <p class="contact-subtitle">
+          จองตรงกับเรา พักผ่อนได้อย่างสบายใจ
+        </p>
+      </div>
+
+      <!-- Contact Methods -->
+      <div class="row justify-content-center g-4">
+
+        <!-- Phone -->
+        <div class="col-12 col-md-5">
+          <div class="contact-card">
+            <div class="icon-circle green">
+              <i class="bi bi-telephone"></i>
+            </div>
+
+            <!-- ปุ่มเปิด Modal -->
+            <a href="#" class="contact-btn green" data-bs-toggle="modal" data-bs-target="#phoneModal">
+              โทรจองห้องพัก
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Messenger -->
+        <div class="col-12 col-md-5">
+          <div class="contact-card">
+            <div class="icon-circle blue">
+              <i class="bi bi-messenger"></i>
+            </div>
+            <a href="https://www.facebook.com/profile.php?id=100063506773137" class="contact-btn blue">
+              ทักแชทเพจ
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <!-- ซ้าย: แผนที่ -->
+        <div class="col-md-6 mb-4">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.236476469268!2d100.9142703748893!3d12.763149087533373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31029275918e7f13%3A0x52ffc0067cbee825!2z4LiZ4LmJ4Liz4LmA4Lir4LiZ4Li34LitIOC4o-C4teC4quC4reC4o-C5jOC4lw!5e0!3m2!1sth!2sth!4v1752908897856!5m2!1sth!2sth"
+              width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- ขวา: ข้อมูลการติดต่อ -->
+        <div class="col-md-6" data-aos="fade-up">
+          <h3 style="color: #ffffffff;" class="mb-4"><i class="bi bi-chat-right-dots"></i> ติดต่อเรา</h3>
+          <h4 style="color: #bfff95;">ที่อยู่ :</h4>
+          <p><i class="bi bi-geo-alt"></i> 165/21 ม.3 ต.บางเสร่ อ.สัตหีบ จ.ชลบุรี 20250 ประเทศไทย</p>
+          <h4 style="color: #bfff95;">โทรศัพท์ :</h4>
+          <p><i class="bi bi-telephone"></i> 089-7491101 (คุณนก)</p>
+          <p><i class="bi bi-telephone"></i> 094-5296712 (คุณต่าย)</p>
+          <p><i class="bi bi-envelope"></i> NamNueResortBangsaray@gmail.com</p>
+          <p><i class="bi bi-facebook"></i> น้ำเหนือรีสอร์ทบางเสร่</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-white py-5" data-aos="fade-up">
+    <div class="container text-center text-md-start">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+          <img src="img/Logo_White.webp" alt="Logo" class="img-fluid" style="max-width: 250px;">
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center align-items-md-start">
+          <h4 style="color: var(--accent-color);">ช่องทางออนไลน์</h4>
+          <p class="mb-3">สามารถติดต่อเราผ่านช่องทางออนไลน์ด้านล่างนี้ได้เลย</p>
+          <div class="d-flex gap-3">
+            <a href="https://www.facebook.com/profile.php?id=100063506773137" target="_blank">
+              <img src="img/Facebook_Logo.webp" alt="Facebook" width="40" height="40">
+            </a>
+            <a href="https://www.tiktok.com/@namnueresort" target="_blank">
+              <img src="img/tiktok_Logo.webp" alt="tiktok" width="40" height="40">
+            </a>
+
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center small" style="color: var(--accent-color);">
+        © 2026 น้ำเหนือรีสอร์ทบางเสร่
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="modal fade" id="phoneModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content call-modal">
+
+        <div class="modal-header border-0">
+          <h5 class="modal-title">
+            <i class="bi bi-telephone-fill me-2"></i> ติดต่อรีสอร์ท
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body text-center">
+          <p class="text-muted mb-4">
+            เลือกเบอร์ที่ต้องการติดต่อ
+          </p>
+
+          <!-- เบอร์ที่ 1 -->
+          <div class="call-person">
+            <span class="call-name">คุณนก</span>
+            <a href="tel:0897491101" class="call-btn">
+              <i class="bi bi-telephone-forward"></i> 089-749-1101
+            </a>
+          </div>
+
+          <!-- เบอร์ที่ 2 -->
+          <div class="call-person">
+            <span class="call-name">คุณต่าย</span>
+            <a href="tel:0945296712" class="call-btn">
+              <i class="bi bi-telephone-forward"></i> 094-529-6712
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="mapModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">แผนที่สถานที่ท่องเที่ยว</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body p-0">
+            <iframe id="mapFrame" src="" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 700,
+        once: true
+      });
+
+      document.querySelectorAll('.current-year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+      });
+
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const navbarCollapse = document.getElementById('navbarNav');
+          if (navbarCollapse.classList.contains('show')) {
+            bootstrap.Collapse.getInstance(navbarCollapse).hide();
+          }
+        });
+      });
+    </script>
+
+</body>
+
+</html>
