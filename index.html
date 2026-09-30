@@ -12,10 +12,10 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-  <!-- Google Fonts: Cormorant Garamond, Jost, Prompt -->
+  <!-- Google Fonts: Cormorant Garamond, Jost, Prompt, Mali -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Prompt:wght@200;300;400;500;600&family=Mali:wght@500;600&display=swap" rel="stylesheet">
 
   <!-- AOS Animation -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -70,12 +70,28 @@
   <header id="home" class="hero-section">
     <div class="container text-center">
       <div class="hero-logo-box" data-aos="fade-down" data-aos-duration="900"></div>
-      <span class="hero-tagline" data-aos="fade-up" data-aos-delay="100">Quiet Luxury by Nature</span>
+      <p class="hero-tagline" data-aos="fade-up" data-aos-delay="100" aria-label="Feel at home in Bang Saray" aria-live="off">
+        <span class="tagline-phrase" aria-hidden="true">Feel at</span>
+        <span class="hand-wrap is-th" aria-hidden="true">
+          <span class="word-stack">
+            <span class="word-cell word-thai is-active" lang="th">
+              <span class="word-inner">บ้าน</span>
+            </span>
+            <span class="word-cell word-eng" lang="en">
+              <span class="word-inner">Home</span>
+            </span>
+          </span>
+          <svg class="hand-underline" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2,8 C28,3 72,11 98,6" />
+          </svg>
+        </span>
+        <span class="tagline-phrase" aria-hidden="true">in Bang Saray</span>
+      </p>
       <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
-        ความสงบเรียบง่าย ท่ามกลางธรรมชาติบางเสร่
+        พักผ่อนอย่างสบายใจ ในบรรยากาศที่แสนอบอุ่น
       </h1>
       <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
-        พักผ่อนอย่างอบอุ่นและผ่อนคลาย ในบรรยากาศที่เงียบสงบและเป็นส่วนตัว ใกล้หาดบางเสร่ สัตหีบ ชลบุรี
+        บริการที่พักหลักร้อย สะดวก สบาย สะอาด ปลอดภัย อุ่นใจทุกการเข้าพัก ใกล้ทุกจุดเช็คอินของสัตหีบและบางเสร่
       </p>
       <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
         <a href="#rooms" class="btn-luxury-primary">
@@ -1009,6 +1025,124 @@
         }
       });
     });
+
+    // Hero Tagline Dual-Personality Word Loop (Single Source of Truth Timing)
+    const taglineWrap = document.querySelector('.hero-tagline .hand-wrap');
+    const wordCells = document.querySelectorAll('.hero-tagline .word-cell');
+    const underlinePath = document.querySelector('.hero-tagline .hand-underline path');
+    const roofEl = document.querySelector('.hero-tagline .roof-accent');
+    const heroTagline = document.querySelector('.hero-tagline');
+
+    if (taglineWrap && wordCells.length > 1) {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        wordCells[0].classList.add('is-active');
+        wordCells[1].classList.remove('is-active');
+        taglineWrap.classList.add('is-th');
+      } else {
+        // Read timings from CSS variables (Single Source of Truth)
+        function getCSSDuration(varName, fallbackMs) {
+          const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+          if (!val) return fallbackMs;
+          if (val.endsWith('ms')) return parseFloat(val);
+          if (val.endsWith('s')) return parseFloat(val) * 1000;
+          return parseFloat(val) || fallbackMs;
+        }
+
+        const swapInterval = getCSSDuration('--swap-interval', 3000);
+        const wordTransition = getCSSDuration('--word-transition', 700);
+        const underlineDraw = getCSSDuration('--underline-draw', 700);
+        const overlapStagger = 150; // Exit & enter overlap by ~150ms
+
+        let currentIndex = 0;
+        let timerId = null;
+        let isPaused = false;
+        let isTransitioning = false;
+        let expectedNext = Date.now() + swapInterval;
+
+        function performSwap() {
+          isTransitioning = true;
+          const nextIndex = (currentIndex + 1) % wordCells.length;
+          const currentCell = wordCells[currentIndex];
+          const nextCell = wordCells[nextIndex];
+
+          // 1. Exiting word floats up by -10px, fades to 0, blurs to 4px
+          currentCell.classList.remove('is-active');
+          currentCell.classList.add('is-exiting');
+
+          // 2. Entering word rises from translateY(10px) to 0, fades from 0 to 1 with 150ms overlap
+          setTimeout(() => {
+            taglineWrap.classList.toggle('is-th', nextIndex === 0);
+            taglineWrap.classList.toggle('is-en', nextIndex === 1);
+
+            // Synchronized underline redraw (dispatched in the same swap event)
+            if (underlinePath) {
+              underlinePath.style.animation = 'none';
+              void underlinePath.offsetWidth; // Force reflow
+              underlinePath.style.animation = `drawHandUnderline ${underlineDraw}ms cubic-bezier(0.25, 1, 0.5, 1) forwards`;
+            }
+
+            // Synchronized roof accent (if present in DOM)
+            if (roofEl) {
+              roofEl.classList.toggle('is-th', nextIndex === 0);
+              roofEl.classList.toggle('is-en', nextIndex === 1);
+            }
+
+            nextCell.classList.remove('is-exiting');
+            nextCell.classList.add('is-active');
+          }, overlapStagger);
+
+          // 3. Complete transition cleanup
+          setTimeout(() => {
+            currentCell.classList.remove('is-exiting');
+            currentIndex = nextIndex;
+            isTransitioning = false;
+          }, wordTransition + overlapStagger);
+        }
+
+        // Drift-compensating recursive timer (ONE timer driven by --swap-interval)
+        function step() {
+          if (isPaused) return;
+          performSwap();
+          expectedNext += swapInterval;
+          const delay = Math.max(0, expectedNext - Date.now());
+          timerId = setTimeout(step, delay);
+        }
+
+        function pause() {
+          isPaused = true;
+          clearTimeout(timerId);
+        }
+
+        function resume() {
+          if (!isPaused) return;
+          isPaused = false;
+          // Restart current word's hold period from the beginning (do not fire an immediate swap)
+          expectedNext = Date.now() + swapInterval;
+          timerId = setTimeout(step, swapInterval);
+        }
+
+        // Interactivity: pause on hover & touch-hold
+        if (heroTagline) {
+          heroTagline.addEventListener('mouseenter', pause);
+          heroTagline.addEventListener('mouseleave', resume);
+          heroTagline.addEventListener('touchstart', pause, { passive: true });
+          heroTagline.addEventListener('touchend', resume, { passive: true });
+        }
+
+        // Page Visibility API: pause when tab is hidden, resume fresh on return
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            pause();
+          } else {
+            resume();
+          }
+        });
+
+        // Start initial timer
+        timerId = setTimeout(step, swapInterval);
+      }
+    }
   </script>
 </body>
 
