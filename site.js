@@ -368,13 +368,14 @@
     imgs.forEach(img => {
       const slide = document.createElement('div');
       slide.className = 'lb-slide';
+      // URLs are attached on first open (lazy-loading does not work inside a
+      // closed/top-layer <dialog>), so the page load stays light.
       const big = document.createElement('img');
-      big.src = img.currentSrc || img.src;
-      if (img.srcset) big.srcset = img.srcset;
-      big.sizes = '100vw';
-      big.alt = img.alt;
-      big.loading = 'lazy';
       big.decoding = 'async';
+      big.alt = img.alt;
+      big.sizes = '100vw';
+      big.dataset.src = img.getAttribute('src');
+      if (img.srcset) big.dataset.srcset = img.srcset;
       slide.appendChild(big);
       lbTrack.appendChild(slide);
     });
@@ -391,7 +392,15 @@
     function go(i) {
       lbTrack.scrollTo({ left: i * lbTrack.clientWidth, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
     }
+    function hydrate() {
+      lbTrack.querySelectorAll('img[data-src]').forEach(im => {
+        if (im.dataset.srcset) im.srcset = im.dataset.srcset;
+        im.src = im.dataset.src;
+        im.removeAttribute('data-src');
+      });
+    }
     function open(i) {
+      hydrate();
       opener = document.activeElement;
       dlg.showModal();
       lockScroll(true);
