@@ -214,4 +214,227 @@
 
     timerId = setTimeout(step, swapInterval);
   }
+
+  // ------------------------------------------------------------------------
+  // Swipe tracks: progress indicator under each horizontal strip
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('[data-track]').forEach(track => {
+    const bar = track.nextElementSibling;
+    if (!bar || !bar.classList.contains('track-progress')) return;
+    const fill = bar.firstElementChild;
+    let raf = 0;
+    function update() {
+      raf = 0;
+      const max = track.scrollWidth - track.clientWidth;
+      bar.style.visibility = max > 4 ? 'visible' : 'hidden';
+      if (max <= 4) return;
+      const w = track.clientWidth / track.scrollWidth;
+      const f = track.scrollLeft / track.scrollWidth;
+      fill.style.setProperty('--w', (w * 100).toFixed(2) + '%');
+      fill.style.setProperty('--x', ((f / w) * 100).toFixed(2) + '%');
+    }
+    track.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    track.addEventListener('trackchange', update);
+    update();
+  });
+
+  // ------------------------------------------------------------------------
+  // Amenities: on phones a 3-column icon grid; tapping an item shows its
+  // description in one panel below (content stays in the DOM).
+  // ------------------------------------------------------------------------
+  const phoneMQ = window.matchMedia('(max-width: 767.98px)');
+  document.querySelectorAll('[data-amenities]').forEach((grid, gi) => {
+    const items = [...grid.querySelectorAll('.facilities-card, .facility-card-premium')];
+    if (!items.length) return;
+    const panel = document.createElement('div');
+    panel.className = 'amenity-panel';
+    panel.id = 'amenity-panel-' + gi;
+    panel.setAttribute('aria-live', 'polite');
+    grid.after(panel);
+
+    function select(item) {
+      items.forEach(it => it.setAttribute('aria-pressed', String(it === item)));
+      const title = item.querySelector('h5');
+      const desc = item.querySelector('p');
+      panel.innerHTML = '';
+      const strong = document.createElement('strong');
+      strong.textContent = title ? title.textContent.trim() : '';
+      const p = document.createElement('p');
+      p.textContent = desc ? desc.textContent.trim() : '';
+      panel.append(strong, p);
+    }
+
+    function setMode() {
+      const on = phoneMQ.matches;
+      items.forEach(it => {
+        if (on) {
+          it.setAttribute('role', 'button');
+          it.setAttribute('tabindex', '0');
+          it.setAttribute('aria-controls', panel.id);
+        } else {
+          ['role', 'tabindex', 'aria-controls', 'aria-pressed'].forEach(a => it.removeAttribute(a));
+        }
+      });
+      if (on) select(items.find(it => it.getAttribute('aria-pressed') === 'true') || items[0]);
+    }
+
+    items.forEach(it => {
+      it.addEventListener('click', () => { if (phoneMQ.matches) select(it); });
+      it.addEventListener('keydown', e => {
+        if (phoneMQ.matches && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(it); }
+      });
+    });
+    phoneMQ.addEventListener('change', setMode);
+    setMode();
+  });
+
+  // ------------------------------------------------------------------------
+  // Nearby places: category chips filter the strip/grid
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('[data-place-filter]').forEach(group => {
+    const track = document.getElementById('attractionsScrollRow');
+    if (!track) return;
+    const cards = [...track.children].filter(el => el.dataset.cat);
+    group.addEventListener('click', e => {
+      const chip = e.target.closest('[data-filter]');
+      if (!chip) return;
+      const f = chip.dataset.filter;
+      group.querySelectorAll('[data-filter]').forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+      cards.forEach(card => {
+        card.hidden = !(f === 'all' || card.dataset.cat === f);
+        if (!card.hidden) card.classList.add('is-in');   // never leave a filtered card unrevealed
+      });
+      track.scrollTo({ left: 0, behavior: 'auto' });
+      track.dispatchEvent(new Event('trackchange'));
+    });
+  });
+
+  // ------------------------------------------------------------------------
+  // Map: one tap to load on phones; loads by itself near the viewport on
+  // desktop. Keeps the heavy Google iframe off the initial page load.
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('[data-map-src]').forEach(box => {
+    function load() {
+      if (box.querySelector('iframe:not(noscript iframe)')) return;
+      const f = document.createElement('iframe');
+      f.src = box.dataset.mapSrc;
+      f.title = box.dataset.mapTitle || 'Google Map';
+      f.width = '100%';
+      f.height = '380';
+      f.style.border = '0';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      box.querySelector('[data-map-load]')?.remove();
+      box.classList.add('is-loaded');
+      box.appendChild(f);
+    }
+    box.querySelector('[data-map-load]')?.addEventListener('click', load);
+    if (desktopMQ.matches && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '300px' });
+      io.observe(box);
+    }
+  });
+
+  // ------------------------------------------------------------------------
+  // Lightbox for [data-lightbox] photo groups: native <dialog> (focus trap,
+  // Escape), swipe between photos, swipe down to close, close in thumb reach.
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('[data-lightbox]').forEach(group => {
+    const imgs = [...group.querySelectorAll('img')];
+    if (!imgs.length || typeof HTMLDialogElement !== 'function') return;
+
+    const dlg = document.createElement('dialog');
+    dlg.className = 'lightbox';
+    dlg.setAttribute('aria-label', 'ภาพบรรยากาศ');
+    dlg.innerHTML =
+      '<div class="lb-count" aria-live="polite"></div>' +
+      '<div class="lb-track"></div>' +
+      '<div class="lb-bar">' +
+      '<button type="button" class="lb-btn lb-prev" aria-label="ภาพก่อนหน้า"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>' +
+      '<button type="button" class="lb-btn lb-close"><i class="bi bi-x-lg" aria-hidden="true"></i> ปิด</button>' +
+      '<button type="button" class="lb-btn lb-next" aria-label="ภาพถัดไป"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>' +
+      '</div>';
+    const lbTrack = dlg.querySelector('.lb-track');
+    const count = dlg.querySelector('.lb-count');
+    const prev = dlg.querySelector('.lb-prev');
+    const next = dlg.querySelector('.lb-next');
+
+    imgs.forEach(img => {
+      const slide = document.createElement('div');
+      slide.className = 'lb-slide';
+      const big = document.createElement('img');
+      big.src = img.currentSrc || img.src;
+      if (img.srcset) big.srcset = img.srcset;
+      big.sizes = '100vw';
+      big.alt = img.alt;
+      big.loading = 'lazy';
+      big.decoding = 'async';
+      slide.appendChild(big);
+      lbTrack.appendChild(slide);
+    });
+    document.body.appendChild(dlg);
+
+    let opener = null;
+    const index = () => Math.round(lbTrack.scrollLeft / lbTrack.clientWidth);
+    function sync() {
+      const i = index();
+      count.textContent = `${i + 1} / ${imgs.length}`;
+      prev.disabled = i <= 0;
+      next.disabled = i >= imgs.length - 1;
+    }
+    function go(i) {
+      lbTrack.scrollTo({ left: i * lbTrack.clientWidth, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    }
+    function open(i) {
+      opener = document.activeElement;
+      dlg.showModal();
+      lockScroll(true);
+      lbTrack.scrollTo({ left: i * lbTrack.clientWidth, behavior: 'auto' });
+      sync();
+      dlg.querySelector('.lb-close').focus();
+    }
+    function close() {
+      if (dlg.open) dlg.close();
+    }
+
+    dlg.addEventListener('close', () => {
+      lockScroll(false);
+      if (opener && opener.focus) opener.focus({ preventScroll: true });
+    });
+    lbTrack.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    prev.addEventListener('click', () => go(index() - 1));
+    next.addEventListener('click', () => go(index() + 1));
+    dlg.querySelector('.lb-close').addEventListener('click', close);
+    dlg.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') go(index() - 1);
+      if (e.key === 'ArrowRight') go(index() + 1);
+    });
+
+    // Swipe down to close (vertical drag that clearly beats horizontal)
+    let sx = 0, sy = 0;
+    lbTrack.addEventListener('touchstart', e => {
+      if (e.touches.length !== 1) return;
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    }, { passive: true });
+    lbTrack.addEventListener('touchend', e => {
+      const t = e.changedTouches[0];
+      const dx = t.clientX - sx, dy = t.clientY - sy;
+      if (dy > 90 && Math.abs(dy) > Math.abs(dx) * 1.5) close();
+    }, { passive: true });
+
+    // Openers: each photo, plus any "see all" button in the same section
+    imgs.forEach((img, i) => {
+      const target = img.closest('.gallery-item-wrapper, .gallery-item') || img;
+      target.setAttribute('role', 'button');
+      target.setAttribute('tabindex', '0');
+      target.setAttribute('aria-label', `ดูภาพขยาย: ${img.alt}`);
+      target.addEventListener('click', () => open(i));
+      target.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+      });
+    });
+    const section = group.closest('section');
+    if (section) section.querySelectorAll('[data-lightbox-open]').forEach(btn => btn.addEventListener('click', () => open(0)));
+  });
 })();

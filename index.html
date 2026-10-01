@@ -68,8 +68,8 @@
   <!-- ======================== HERO SECTION ======================== -->
   <header id="home" class="hero-section">
     <div class="container text-center">
-      <div class="hero-logo-box" data-aos="fade-down" data-aos-duration="900"></div>
-      <p class="hero-tagline" data-aos="fade-up" data-aos-delay="100" aria-label="Feel at home in Bang Saray" aria-live="off">
+      <div class="hero-logo-box hero-in" role="img" aria-label="โลโก้ น้ำเหนือรีสอร์ท บางเสร่"></div>
+      <p class="hero-tagline hero-in" aria-label="Feel at home in Bang Saray" aria-live="off">
         <span class="tagline-phrase" aria-hidden="true">Feel at</span>
         <span class="hand-wrap is-th" aria-hidden="true">
           <span class="word-stack">
@@ -86,18 +86,18 @@
         </span>
         <span class="tagline-phrase" aria-hidden="true">in Bang Saray</span>
       </p>
-      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
-        พักผ่อนอย่างสบายใจ ในบรรยากาศที่แสนอบอุ่น
+      <h1 class="hero-title hero-in">
+        <span class="nowrap">พักผ่อนอย่างสบายใจ</span> <span class="nowrap">ในบรรยากาศที่แสนอบอุ่น</span>
       </h1>
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+      <p class="hero-subtitle hero-in">
         บริการที่พักหลักร้อย สะดวก สบาย สะอาด ปลอดภัย อุ่นใจทุกการเข้าพัก ใกล้ทุกจุดเช็คอินของสัตหีบและบางเสร่
       </p>
-      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-        <a href="#rooms" class="btn-luxury-primary">
-          <i class="bi bi-compass"></i> สำรวจห้องพัก
+      <div class="hero-buttons hero-in">
+        <a href="#ContactRoom" class="btn-luxury-primary" data-bs-toggle="modal" data-bs-target="#phoneModal">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> จองห้องพัก
         </a>
-        <a href="#ContactRoom" class="btn-luxury-outline" data-bs-toggle="modal" data-bs-target="#phoneModal">
-          <i class="bi bi-calendar3"></i> จองห้องพัก
+        <a href="#rooms" class="btn-luxury-outline">
+          <i class="bi bi-compass" aria-hidden="true"></i> สำรวจห้องพัก
         </a>
       </div>
     </div>
@@ -133,16 +133,16 @@
   <!-- ======================== ROOMS SECTION ======================== -->
   <section id="rooms">
     <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-head" data-aos="fade-up">
         <span class="section-eyebrow">Accommodations & Suites</span>
         <h2 class="mb-2">ห้องพักของเรา</h2>
-        <p class="text-muted" style="max-width: 580px; margin: 0 auto;">
+        <p class="text-muted section-lead">
           ออกแบบเพื่อการพักผ่อนที่ปลอดโปร่ง สบายตา พร้อมสิ่งอำนวยความสะดวกครบครันในราคามิตรภาพ
         </p>
       </div>
 
-      <!-- ROW 1: Standard Rooms (4 Columns) -->
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
+      <!-- Room track: swipe strip on phones, 4 + 3 grid on desktop -->
+      <div class="room-track" data-track tabindex="0" aria-label="ห้องพักทั้งหมด 7 แบบ (ปัดซ้าย-ขวา)">
         
         <!-- Room 1: ห้องเตียงเดี่ยว -->
         <div class="col" data-aos="fade-up" data-aos-delay="100">
@@ -257,11 +257,8 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- ROW 2: Minimalist Series (3 Columns) -->
-      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
         
+        <!-- Minimalist Series (C1-C3) continue in the same track -->
         <!-- Room C1 -->
         <div class="col" data-aos="fade-up" data-aos-delay="100">
           <div class="card h-100">
@@ -355,17 +352,18 @@
         </div>
 
       </div>
+      <div class="track-progress" aria-hidden="true"><span></span></div>
     </div>
   </section>
 
   <!-- ======================== EDITORIAL PHILOSOPHY ======================== -->
-  <section class="py-5" style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background-color: var(--bg-surface);">
-    <div class="container text-center py-4" data-aos="fade-up">
+  <section class="philosophy">
+    <div class="container text-center" data-aos="fade-up">
       <span class="section-eyebrow">Our Philosophy</span>
-      <blockquote style="font-family: var(--font-serif); font-size: clamp(1.4rem, 2.8vw, 2.2rem); font-weight: 300; line-height: 1.6; color: var(--text-primary); max-width: 820px; margin: 0 auto 16px;">
-        “ที่แห่งความสงบ เรียบง่าย และอบอุ่นราวกับอยู่บ้าน เพื่อให้ทุกช่วงเวลาของการพักผ่อนใกล้ชิดธรรมชาติอย่างแท้จริง”
+      <blockquote class="philosophy-quote">
+        “ที่แห่งความสงบ เรียบง่าย และอบอุ่นราวกับอยู่<span class="hand-accent">บ้าน</span> เพื่อให้ทุกช่วงเวลาของการพักผ่อนใกล้ชิดธรรมชาติอย่างแท้จริง”
       </blockquote>
-      <p class="mb-0 text-muted" style="letter-spacing: 0.15em; font-size: 13px; text-transform: uppercase;">
+      <p class="philosophy-cite">
         — น้ำเหนือรีสอร์ท บางเสร่ สัตหีบ —
       </p>
     </div>
@@ -374,15 +372,15 @@
   <!-- ======================== FACILITIES / AMENITIES ======================== -->
   <section id="facilities">
     <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-head" data-aos="fade-up">
         <span class="section-eyebrow">Comfort & Convenience</span>
         <h2>สิ่งอำนวยความสะดวก</h2>
-        <p class="text-muted" style="max-width: 540px; margin: 0 auto;">
+        <p class="text-muted section-lead">
           ทุกความใส่ใจเพื่อมอบความสะดวกสบายและความสุขตลอดการเข้าพักของคุณ
         </p>
       </div>
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 amenity-grid" data-amenities>
         
         <!-- 1 -->
         <div class="col" data-aos="fade-up" data-aos-delay="50">
@@ -490,54 +488,54 @@
   <!-- ======================== GALLERY SECTION ======================== -->
   <section id="gallery">
     <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-head" data-aos="fade-up">
         <span class="section-eyebrow">Visual Journey</span>
         <h2>แกลเลอรี่ภาพบรรยากาศ</h2>
-        <p class="text-muted" style="max-width: 540px; margin: 0 auto;">
+        <p class="text-muted section-lead">
           ชมบรรยากาศความร่มรื่น สวนเขียวขจี และความสงบผ่อนคลายรอบน้ำเหนือรีสอร์ท
         </p>
       </div>
 
-      <!-- Desktop Grid -->
-      <div class="row g-4 gallery d-none d-md-flex">
+      <!-- Photo strip: swipe on phones, grid on tablet/desktop; tap opens the lightbox -->
+      <div class="row g-4 gallery photo-strip" data-lightbox>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
           <div class="gallery-item-wrapper">
-            <img src="/img/sala/s3.webp" srcset="/img/sala/s3-480.webp 480w, /img/sala/s3-960.webp 960w, /img/sala/s3.webp 1600w" sizes="(min-width: 992px) 33vw, 50vw" alt="ศาลาพักผ่อน" loading="lazy" decoding="async">
+            <img src="/img/sala/s3.webp" srcset="/img/sala/s3-480.webp 480w, /img/sala/s3-960.webp 960w, /img/sala/s3.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="ศาลาพักผ่อน" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="gallery-item-wrapper">
-            <img src="/img/bg-website-namnue.webp" srcset="/img/bg-website-namnue-480.webp 480w, /img/bg-website-namnue-960.webp 960w, /img/bg-website-namnue.webp 1600w" sizes="(min-width: 992px) 33vw, 50vw" alt="บรรยากาศรีสอร์ท" loading="lazy" decoding="async">
+            <img src="/img/bg-website-namnue.webp" srcset="/img/bg-website-namnue-480.webp 480w, /img/bg-website-namnue-960.webp 960w, /img/bg-website-namnue.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="บรรยากาศรีสอร์ท" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
           <div class="gallery-item-wrapper">
-            <img src="/img/resort-view/v2.webp" srcset="/img/resort-view/v2-480.webp 480w, /img/resort-view/v2-960.webp 960w, /img/resort-view/v2.webp 1600w" sizes="(min-width: 992px) 33vw, 50vw" alt="วิวธรรมชาติรีสอร์ท" loading="lazy" decoding="async">
+            <img src="/img/resort-view/v2.webp" srcset="/img/resort-view/v2-480.webp 480w, /img/resort-view/v2-960.webp 960w, /img/resort-view/v2.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="วิวธรรมชาติรีสอร์ท" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="gallery-item-wrapper">
-            <img src="/img/resort-view/v6.webp" srcset="/img/resort-view/v6-480.webp 480w, /img/resort-view/v6-960.webp 960w, /img/resort-view/v6.webp 1600w" sizes="(min-width: 992px) 33vw, 50vw" alt="ต้นไม้และสวนร่มรื่น" loading="lazy" decoding="async">
+            <img src="/img/resort-view/v6.webp" srcset="/img/resort-view/v6-480.webp 480w, /img/resort-view/v6-960.webp 960w, /img/resort-view/v6.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="ต้นไม้และสวนร่มรื่น" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
           <div class="gallery-item-wrapper">
-            <img src="/img/resort-view/v1.webp" srcset="/img/resort-view/v1-480.webp 480w, /img/resort-view/v1-960.webp 960w, /img/resort-view/v1.webp 1600w" sizes="(min-width: 992px) 33vw, 50vw" alt="ทางเดินในรีสอร์ท" loading="lazy" decoding="async">
+            <img src="/img/resort-view/v1.webp" srcset="/img/resort-view/v1-480.webp 480w, /img/resort-view/v1-960.webp 960w, /img/resort-view/v1.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="ทางเดินในรีสอร์ท" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="gallery-item-wrapper">
-            <img src="/img/activities/d1.webp" srcset="/img/activities/d1-480.webp 480w, /img/activities/d1-960.webp 960w, /img/activities/d1.webp 1600w" sizes="(min-width: 992px) 33vw, 50vw" alt="กิจกรรมและการพักผ่อน" loading="lazy" decoding="async">
+            <img src="/img/activities/d1.webp" srcset="/img/activities/d1-480.webp 480w, /img/activities/d1-960.webp 960w, /img/activities/d1.webp 1600w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="กิจกรรมและการพักผ่อน" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
           <div class="gallery-item-wrapper">
-            <img src="/img/activities/d3.webp" srcset="/img/activities/d3-480.webp 480w, /img/activities/d3-960.webp 960w, /img/activities/d3.webp 1225w" sizes="(min-width: 992px) 33vw, 50vw" alt="มุมพักผ่อนสบายๆ" loading="lazy" decoding="async">
+            <img src="/img/activities/d3.webp" srcset="/img/activities/d3-480.webp 480w, /img/activities/d3-960.webp 960w, /img/activities/d3.webp 1225w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="มุมพักผ่อนสบายๆ" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="gallery-item-wrapper">
-            <img src="/img/activities/d4.webp" srcset="/img/activities/d4-480.webp 480w, /img/activities/d4-960.webp 960w, /img/activities/d4.webp 1225w" sizes="(min-width: 992px) 33vw, 50vw" alt="บริเวณโดยรอบ" loading="lazy" decoding="async">
+            <img src="/img/activities/d4.webp" srcset="/img/activities/d4-480.webp 480w, /img/activities/d4-960.webp 960w, /img/activities/d4.webp 1225w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 78vw" alt="บริเวณโดยรอบ" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
@@ -546,53 +544,9 @@
           </div>
         </div>
       </div>
-
-      <!-- Mobile Carousel -->
-      <div id="galleryCarouselMobile" class="carousel slide d-block d-md-none" data-bs-ride="carousel">
-        <div class="carousel-inner pb-2 gallery">
-          <div class="carousel-item active">
-            <div class="px-1 gallery-item-wrapper">
-              <img src="/img/sala/s3.webp" srcset="/img/sala/s3-480.webp 480w, /img/sala/s3-960.webp 960w, /img/sala/s3.webp 1600w" sizes="100vw" alt="ศาลาพักผ่อน" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="px-1 gallery-item-wrapper">
-              <img src="/img/bg-website-namnue.webp" srcset="/img/bg-website-namnue-480.webp 480w, /img/bg-website-namnue-960.webp 960w, /img/bg-website-namnue.webp 1600w" sizes="100vw" alt="บรรยากาศรีสอร์ท" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="px-1 gallery-item-wrapper">
-              <img src="/img/resort-view/v2.webp" srcset="/img/resort-view/v2-480.webp 480w, /img/resort-view/v2-960.webp 960w, /img/resort-view/v2.webp 1600w" sizes="100vw" alt="วิวธรรมชาติรีสอร์ท" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="px-1 gallery-item-wrapper">
-              <img src="/img/resort-view/v6.webp" srcset="/img/resort-view/v6-480.webp 480w, /img/resort-view/v6-960.webp 960w, /img/resort-view/v6.webp 1600w" sizes="100vw" alt="ต้นไม้และสวนร่มรื่น" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="px-1 gallery-item-wrapper">
-              <img src="/img/resort-view/v1.webp" srcset="/img/resort-view/v1-480.webp 480w, /img/resort-view/v1-960.webp 960w, /img/resort-view/v1.webp 1600w" sizes="100vw" alt="ทางเดินในรีสอร์ท" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="px-1 gallery-item-wrapper">
-              <img src="/img/activities/d1.webp" srcset="/img/activities/d1-480.webp 480w, /img/activities/d1-960.webp 960w, /img/activities/d1.webp 1600w" sizes="100vw" alt="กิจกรรมและการพักผ่อน" loading="lazy" decoding="async">
-            </div>
-          </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarouselMobile" data-bs-slide="prev" style="width: 15%;">
-          <div class="carousel-btn-icon-green">
-            <i class="bi bi-chevron-left fs-5"></i>
-          </div>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarouselMobile" data-bs-slide="next" style="width: 15%;">
-          <div class="carousel-btn-icon-green">
-            <i class="bi bi-chevron-right fs-5"></i>
-          </div>
-          <span class="visually-hidden">Next</span>
+      <div class="gallery-actions">
+        <button type="button" class="btn-outline-dark" data-lightbox-open>
+          <i class="bi bi-arrows-fullscreen" aria-hidden="true"></i> ดูภาพทั้งหมด
         </button>
       </div>
 
@@ -602,19 +556,26 @@
   <!-- ======================== ATTRACTIONS SECTION ======================== -->
   <section id="Attractions">
     <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-head" data-aos="fade-up">
         <span class="section-eyebrow">Explore Nearby</span>
         <h2>แหล่งท่องเที่ยวใกล้รีสอร์ท</h2>
-        <p class="text-muted" style="max-width: 540px; margin: 0 auto;">
+        <p class="text-muted section-lead">
           เลือกชมสถานที่ท่องเที่ยวและหาดสวยใกล้เคียง เพื่อวางแผนวันพักผ่อนของคุณ
         </p>
       </div>
 
-      <div class="position-relative">
-        <div class="row g-4 attractions-scroll" id="attractionsScrollRow">
+      <div class="place-filter" role="group" aria-label="กรองสถานที่ตามประเภท" data-place-filter>
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">ทั้งหมด</button>
+        <button type="button" class="chip" data-filter="sea" aria-pressed="false">ทะเล</button>
+        <button type="button" class="chip" data-filter="sight" aria-pressed="false">เที่ยวชม</button>
+        <button type="button" class="chip" data-filter="water" aria-pressed="false">สวนน้ำ</button>
+      </div>
+
+      <div>
+        <div class="row g-4 attractions-scroll place-track" id="attractionsScrollRow" data-track tabindex="0" aria-label="สถานที่ท่องเที่ยวใกล้เคียง (ปัดซ้าย-ขวา)">
           
           <!-- Card 1 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="col-md-6 col-lg-4" data-cat="sea" data-aos="fade-up" data-aos-delay="0">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>หาดบางเสร่</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -633,7 +594,7 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+          <div class="col-md-6 col-lg-4" data-cat="sea" data-aos="fade-up" data-aos-delay="50">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>หาดทรายแก้ว</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -652,7 +613,7 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6 col-lg-4" data-cat="sea" data-aos="fade-up" data-aos-delay="100">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>หาดบ้านอำเภอ</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -671,7 +632,7 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-md-6 col-lg-4" data-cat="sea" data-aos="fade-up" data-aos-delay="150">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>หาดสอ</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -690,7 +651,7 @@
           </div>
 
           <!-- Card 5 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-6 col-lg-4" data-cat="sight" data-aos="fade-up" data-aos-delay="200">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>เขาชีจรรย์</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -709,7 +670,7 @@
           </div>
 
           <!-- Card 6 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+          <div class="col-md-6 col-lg-4" data-cat="sight" data-aos="fade-up" data-aos-delay="250">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>วิหารเซียน</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -728,7 +689,7 @@
           </div>
 
           <!-- Card 7 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-6 col-lg-4" data-cat="sight" data-aos="fade-up" data-aos-delay="300">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>สวนนงนุชพัทยา</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -747,7 +708,7 @@
           </div>
 
           <!-- Card 8 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+          <div class="col-md-6 col-lg-4" data-cat="water" data-aos="fade-up" data-aos-delay="350">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>สวนน้ำ Columbia Pictures Aquaverse</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -766,7 +727,7 @@
           </div>
 
           <!-- Card 9 -->
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-md-6 col-lg-4" data-cat="water" data-aos="fade-up" data-aos-delay="400">
             <div class="attraction-card p-4 h-100 d-flex flex-column">
               <h5>สวนน้ำรามายณะ</h5>
               <p class="small text-muted mb-4 flex-grow-1">
@@ -785,26 +746,11 @@
           </div>
 
         </div>
-
-        <!-- Mobile Scroll Buttons -->
-        <button class="carousel-control-prev d-md-none border-0 bg-transparent" type="button"
-          onclick="document.getElementById('attractionsScrollRow').scrollBy({left: -280, behavior: 'smooth'})"
-          style="top: 50%; transform: translateY(-50%); width: auto; left: -10px; bottom: auto; z-index: 10;">
-          <div class="carousel-btn-icon-green">
-            <i class="bi bi-chevron-left fs-5"></i>
-          </div>
-        </button>
-        <button class="carousel-control-next d-md-none border-0 bg-transparent" type="button"
-          onclick="document.getElementById('attractionsScrollRow').scrollBy({left: 280, behavior: 'smooth'})"
-          style="top: 50%; transform: translateY(-50%); width: auto; right: -10px; bottom: auto; z-index: 10;">
-          <div class="carousel-btn-icon-green">
-            <i class="bi bi-chevron-right fs-5"></i>
-          </div>
-        </button>
+        <div class="track-progress" aria-hidden="true"><span></span></div>
       </div>
 
       <!-- Disclaimer -->
-      <div class="text-center mt-5">
+      <div class="text-center place-note">
         <small class="text-muted" style="letter-spacing: 0.05em;">
           <i class="bi bi-info-circle me-1"></i> ข้อมูลสถานที่ท่องเที่ยวเป็นคำแนะนำเบื้องต้น กรุณาตรวจสอบเวลาเปิด-ปิดกับสถานที่โดยตรง
         </small>
@@ -816,10 +762,10 @@
   <!-- ======================== CONTACT ROOM CTA ======================== -->
   <section id="ContactRoom" class="contact-section">
     <div class="container text-center">
-      <div class="mb-5" data-aos="fade-up">
+      <div class="section-head" data-aos="fade-up">
         <span class="section-eyebrow">Reservation & Direct Booking</span>
         <h2>ติดต่อสำรองห้องพัก</h2>
-        <p class="text-muted" style="max-width: 480px; margin: 0 auto;">
+        <p class="text-muted section-lead">
           จองตรงกับเราได้อย่างสะดวก รวดเร็ว พร้อมรับคำแนะนำการเข้าพักอย่างเป็นกันเอง
         </p>
       </div>
@@ -861,43 +807,55 @@
   </section>
 
   <!-- ======================== LOCATION & MAP ======================== -->
-  <section id="contact" style="background-color: var(--bg-surface);">
+  <section id="contact" class="location-section">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <!-- Google Map -->
-        <div class="col-lg-6" data-aos="fade-up">
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.236476469268!2d100.9142703748893!3d12.763149087533373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31029275918e7f13%3A0x52ffc0067cbee825!2z4LiZ4LmJ4Liz4LmA4Lir4LiZ4Li34LitIOC4o-C4teC4quC4reC4o-C5jOC4lw!5e0!3m2!1sth!2sth!4v1752908897856!5m2!1sth!2sth"
-              width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+      <div class="row align-items-center g-4 g-lg-5">
+        <!-- Contact Info (first on phones: tappable rows) -->
+        <div class="col-lg-6 order-lg-2" data-aos="fade-up">
+          <span class="section-eyebrow">Location & Directions</span>
+          <h2 class="location-title">ที่ตั้งและการเดินทาง</h2>
+
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>ที่อยู่ :</dt>
+              <dd><i class="bi bi-geo-alt" aria-hidden="true"></i> 165/21 ม.3 ต.บางเสร่ อ.สัตหีบ จ.ชลบุรี 20250 ประเทศไทย</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>โทรศัพท์ติดต่อ :</dt>
+              <dd>
+                <a class="info-link" href="tel:0897491101"><i class="bi bi-telephone" aria-hidden="true"></i> <strong>089-749-1101</strong> (คุณนก)</a>
+                <a class="info-link" href="tel:0945296712"><i class="bi bi-telephone" aria-hidden="true"></i> <strong>094-529-6712</strong> (คุณต่าย)</a>
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>อีเมล :</dt>
+              <dd><a class="info-link" href="mailto:NamNueResortBangsaray@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i> NamNueResortBangsaray@gmail.com</a></dd>
+            </div>
+
+            <div class="info-row">
+              <dt>เฟซบุ๊ก :</dt>
+              <dd><a class="info-link" href="https://www.facebook.com/profile.php?id=100063506773137" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook" aria-hidden="true"></i> น้ำเหนือรีสอร์ทบางเสร่</a></dd>
+            </div>
+          </dl>
+
+          <a class="btn-outline-dark map-open" href="https://maps.google.com/?cid=5980709964266530853" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-map" aria-hidden="true"></i> เปิดใน Google Maps
+          </a>
         </div>
 
-        <!-- Contact Info -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <span class="section-eyebrow">Location & Directions</span>
-          <h2 class="mb-4">ที่ตั้งและการเดินทาง</h2>
-          
-          <div class="mb-3">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 0.15em;">ที่อยู่ :</h6>
-            <p><i class="bi bi-geo-alt me-2 text-muted"></i> 165/21 ม.3 ต.บางเสร่ อ.สัตหีบ จ.ชลบุรี 20250 ประเทศไทย</p>
-          </div>
-
-          <div class="mb-3">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 0.15em;">โทรศัพท์ติดต่อ :</h6>
-            <p class="mb-1"><i class="bi bi-telephone me-2 text-muted"></i> <a href="tel:0897491101" class="text-decoration-none" style="color: var(--text-primary); font-weight: 500;">089-749-1101</a> (คุณนก)</p>
-            <p><i class="bi bi-telephone me-2 text-muted"></i> <a href="tel:0945296712" class="text-decoration-none" style="color: var(--text-primary); font-weight: 500;">094-529-6712</a> (คุณต่าย)</p>
-          </div>
-
-          <div class="mb-3">
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 0.15em;">อีเมล :</h6>
-            <p><i class="bi bi-envelope me-2 text-muted"></i> NamNueResortBangsaray@gmail.com</p>
-          </div>
-
-          <div>
-            <h6 class="text-uppercase text-muted" style="letter-spacing: 0.15em;">เฟซบุ๊ก :</h6>
-            <p><i class="bi bi-facebook me-2 text-muted"></i> น้ำเหนือรีสอร์ทบางเสร่</p>
+        <!-- Google Map -->
+        <div class="col-lg-6 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+          <div class="map-container" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.236476469268!2d100.9142703748893!3d12.763149087533373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31029275918e7f13%3A0x52ffc0067cbee825!2z4LiZ4LmJ4Liz4LmA4Lir4LiZ4Li34LitIOC4o-C4teC4quC4reC4o-C5jOC4lw!5e0!3m2!1sth!2sth!4v1752908897856!5m2!1sth!2sth" data-map-title="แผนที่ น้ำเหนือรีสอร์ท บางเสร่">
+            <!-- Map loads on tap on phones (auto on desktop) to save data and scroll -->
+            <button type="button" class="map-facade" data-map-load>
+              <i class="bi bi-geo-alt" aria-hidden="true"></i>
+              <span>แสดงแผนที่</span>
+            </button>
+            <noscript>
+              <iframe title="แผนที่ น้ำเหนือรีสอร์ท บางเสร่" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.236476469268!2d100.9142703748893!3d12.763149087533373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31029275918e7f13%3A0x52ffc0067cbee825!2z4LiZ4LmJ4Liz4LmA4Lir4LiZ4Li34LitIOC4o-C4teC4quC4reC4o-C5jOC4lw!5e0!3m2!1sth!2sth!4v1752908897856!5m2!1sth!2sth" width="100%" height="380" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </noscript>
           </div>
         </div>
       </div>
