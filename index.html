@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>document.documentElement.classList.add('js')</script>
   <title>น้ำเหนือรีสอร์ทบางเสร่ | Nam Nue Resort Bang Saray</title>
   <link rel="icon" type="image/x-icon" href="/img/iconheadweb.webp">
 
@@ -17,8 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Prompt:wght@200;300;400;500;600&family=Mali:wght@500;600&display=swap" rel="stylesheet">
 
-  <!-- AOS Animation -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- Luxury Boutique Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -989,161 +988,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/site.js" defer></script>
 
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      easing: 'ease-out'
-    });
-
-    // Copyright Year
-    const yearEl = document.getElementById('currentYear');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // Navbar Scroll Effect (Transparent -> Warm Solid Off-White)
-    const navbar = document.getElementById('mainNavbar');
-    function updateNavbar() {
-      if (window.scrollY > 40) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }
-    window.addEventListener('scroll', updateNavbar);
-    updateNavbar();
-
-    // Close Mobile Menu on Click
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-          if (bsCollapse) bsCollapse.hide();
-        }
-      });
-    });
-
-    // Hero Tagline Dual-Personality Word Loop (Single Source of Truth Timing)
-    const taglineWrap = document.querySelector('.hero-tagline .hand-wrap');
-    const wordCells = document.querySelectorAll('.hero-tagline .word-cell');
-    const underlinePath = document.querySelector('.hero-tagline .hand-underline path');
-    const roofEl = document.querySelector('.hero-tagline .roof-accent');
-    const heroTagline = document.querySelector('.hero-tagline');
-
-    if (taglineWrap && wordCells.length > 1) {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) {
-        wordCells[0].classList.add('is-active');
-        wordCells[1].classList.remove('is-active');
-        taglineWrap.classList.add('is-th');
-      } else {
-        // Read timings from CSS variables (Single Source of Truth)
-        function getCSSDuration(varName, fallbackMs) {
-          const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-          if (!val) return fallbackMs;
-          if (val.endsWith('ms')) return parseFloat(val);
-          if (val.endsWith('s')) return parseFloat(val) * 1000;
-          return parseFloat(val) || fallbackMs;
-        }
-
-        const swapInterval = getCSSDuration('--swap-interval', 3000);
-        const wordTransition = getCSSDuration('--word-transition', 700);
-        const underlineDraw = getCSSDuration('--underline-draw', 700);
-        const overlapStagger = 150; // Exit & enter overlap by ~150ms
-
-        let currentIndex = 0;
-        let timerId = null;
-        let isPaused = false;
-        let isTransitioning = false;
-        let expectedNext = Date.now() + swapInterval;
-
-        function performSwap() {
-          isTransitioning = true;
-          const nextIndex = (currentIndex + 1) % wordCells.length;
-          const currentCell = wordCells[currentIndex];
-          const nextCell = wordCells[nextIndex];
-
-          // 1. Exiting word floats up by -10px, fades to 0, blurs to 4px
-          currentCell.classList.remove('is-active');
-          currentCell.classList.add('is-exiting');
-
-          // 2. Entering word rises from translateY(10px) to 0, fades from 0 to 1 with 150ms overlap
-          setTimeout(() => {
-            taglineWrap.classList.toggle('is-th', nextIndex === 0);
-            taglineWrap.classList.toggle('is-en', nextIndex === 1);
-
-            // Synchronized underline redraw (dispatched in the same swap event)
-            if (underlinePath) {
-              underlinePath.style.animation = 'none';
-              void underlinePath.offsetWidth; // Force reflow
-              underlinePath.style.animation = `drawHandUnderline ${underlineDraw}ms cubic-bezier(0.25, 1, 0.5, 1) forwards`;
-            }
-
-            // Synchronized roof accent (if present in DOM)
-            if (roofEl) {
-              roofEl.classList.toggle('is-th', nextIndex === 0);
-              roofEl.classList.toggle('is-en', nextIndex === 1);
-            }
-
-            nextCell.classList.remove('is-exiting');
-            nextCell.classList.add('is-active');
-          }, overlapStagger);
-
-          // 3. Complete transition cleanup
-          setTimeout(() => {
-            currentCell.classList.remove('is-exiting');
-            currentIndex = nextIndex;
-            isTransitioning = false;
-          }, wordTransition + overlapStagger);
-        }
-
-        // Drift-compensating recursive timer (ONE timer driven by --swap-interval)
-        function step() {
-          if (isPaused) return;
-          performSwap();
-          expectedNext += swapInterval;
-          const delay = Math.max(0, expectedNext - Date.now());
-          timerId = setTimeout(step, delay);
-        }
-
-        function pause() {
-          isPaused = true;
-          clearTimeout(timerId);
-        }
-
-        function resume() {
-          if (!isPaused) return;
-          isPaused = false;
-          // Restart current word's hold period from the beginning (do not fire an immediate swap)
-          expectedNext = Date.now() + swapInterval;
-          timerId = setTimeout(step, swapInterval);
-        }
-
-        // Interactivity: pause on hover & touch-hold
-        if (heroTagline) {
-          heroTagline.addEventListener('mouseenter', pause);
-          heroTagline.addEventListener('mouseleave', resume);
-          heroTagline.addEventListener('touchstart', pause, { passive: true });
-          heroTagline.addEventListener('touchend', resume, { passive: true });
-        }
-
-        // Page Visibility API: pause when tab is hidden, resume fresh on return
-        document.addEventListener('visibilitychange', () => {
-          if (document.hidden) {
-            pause();
-          } else {
-            resume();
-          }
-        });
-
-        // Start initial timer
-        timerId = setTimeout(step, swapInterval);
-      }
-    }
-  </script>
 </body>
 
 </html>
