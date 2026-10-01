@@ -43,9 +43,10 @@
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
   --press: 120ms;
 
-  /* Warm accent (CTA only) — 5.1:1 on white */
-  --accent: #A65A33;
-  --accent-hover: #8E4B29;
+  /* CTA accent: the brand sage green, one step deeper than --color-sage-dark
+     so white text passes WCAG AA (5.4:1 on white) */
+  --accent: #5F6E5A;
+  --accent-hover: #4E5B4A;
 
   /* Surface & Background */
   --bg-primary: #F7F4EF;               /* Warm off-white */
