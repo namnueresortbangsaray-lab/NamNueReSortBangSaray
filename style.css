@@ -707,39 +707,57 @@ html.scroll-locked body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/img/bgnamnueresort.webp') no-repeat center center / cover;
-  background-attachment: scroll;
+  --hero-img: url('/img/bgnamnueresort.webp');
+  background-color: #6F7A62;           /* shown only until the photo loads */
   color: var(--text-light);
   text-align: center;
   padding: 140px 0 100px;
   overflow: hidden;
+  isolation: isolate;
 }
 
 /* Keep in sync with the preload links in index.html */
 @media (max-width: 900px) {
   .hero-section {
-    background-image: url('/img/bgnamnueresort-1280.webp');
+    --hero-img: url('/img/bgnamnueresort-1280.webp');
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    background-image: url('/img/bgnamnueresort-960.webp');
+    --hero-img: url('/img/bgnamnueresort-960.webp');
   }
 }
 
-/* Cohesive warm dark overlay */
+/* Photo layer: a touch brighter and livelier than the raw image */
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(32, 28, 25, 0.45) 0%,
-    rgba(32, 28, 25, 0.65) 60%,
-    rgba(32, 28, 25, 0.85) 100%
-  );
+  background: var(--hero-img) no-repeat center center / cover;
+  filter: brightness(1.03) saturate(1.2) contrast(1.04);
+  z-index: 0;
+}
+
+/* Light overlay: darkens only where the text sits (center) plus a soft top
+   edge for the navbar, so the sky and greenery stay bright. */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 46% 52% at 50% 52%, rgba(28, 25, 22, 0.58) 0%, rgba(28, 25, 22, 0.4) 45%, rgba(28, 25, 22, 0.12) 80%, rgba(28, 25, 22, 0) 100%),
+    linear-gradient(180deg, rgba(28, 25, 22, 0.42) 0%, rgba(28, 25, 22, 0) 16%, rgba(28, 25, 22, 0) 76%, rgba(28, 25, 22, 0.28) 100%);
   z-index: 1;
+}
+
+/* Phones: text block covers most of the frame, so a bit more veil */
+@media (max-width: 575.98px) {
+  .hero-section::after {
+    background:
+      radial-gradient(ellipse 90% 45% at 50% 56%, rgba(28, 25, 22, 0.48) 0%, rgba(28, 25, 22, 0.2) 75%, rgba(28, 25, 22, 0.08) 100%),
+      linear-gradient(180deg, rgba(28, 25, 22, 0.3) 0%, rgba(28, 25, 22, 0) 20%);
+  }
 }
 
 .hero-section .container {
@@ -2060,6 +2078,18 @@ footer .footer-copy {
   letter-spacing: 0;
   margin-bottom: clamp(10px, 2svh, 24px);
   text-wrap: balance;
+  text-shadow: 0 2px 22px rgba(20, 18, 16, 0.45), 0 1px 3px rgba(20, 18, 16, 0.3);
+}
+
+.hero-subtitle,
+.hero-buttons .btn-luxury-outline {
+  text-shadow: 0 1px 12px rgba(20, 18, 16, 0.55);
+}
+
+.hero-buttons .btn-luxury-outline {
+  background: rgba(28, 25, 22, 0.22);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 .hero-subtitle {
