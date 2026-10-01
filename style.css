@@ -2837,6 +2837,168 @@ footer .footer-copy {
   height: var(--tap);
 }
 
+/* ---------- Room detail pages ---------- */
+.room-hero {
+  min-height: 0;
+  padding: calc(var(--nav-h) + env(safe-area-inset-top) + clamp(28px, 6vw, 72px)) 0 clamp(64px, 9vw, 110px);
+}
+
+.room-hero h1 {
+  font-size: clamp(1.6rem, 1.1rem + 2.6vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.room-hero p {
+  font-size: clamp(0.95rem, 0.9rem + 0.4vw, 1.15rem);
+  line-height: 1.7;
+  max-width: 34em;
+  margin-inline: auto;
+}
+
+.room-hero .eyebrow {
+  margin-bottom: 4px;
+}
+
+.details-wrapper {
+  margin-top: clamp(-60px, -6vw, -40px);
+  padding-top: 0;
+}
+
+.room-card {
+  padding: clamp(14px, 3vw, 48px);
+}
+
+.room-card > .row {
+  --bs-gutter-y: 20px;
+}
+
+@media (min-width: 992px) {
+  .room-card > .row { --bs-gutter-y: 3rem; }
+}
+
+.room-main-img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
+@media (min-width: 992px) {
+  .room-main-img { height: 480px; aspect-ratio: auto; }
+}
+
+.section-title {
+  font-size: var(--fs-h3);
+  margin-bottom: 12px;
+}
+
+.room-card .mb-4.text-muted {
+  margin-bottom: 16px !important;
+}
+
+.feature-list {
+  margin-bottom: 8px;
+}
+
+.feature-list li {
+  font-family: var(--font-thai);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+.feature-list li > i,
+.feature-list li > svg {
+  margin-top: 0.2em;
+}
+
+.price-box {
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.price-label {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.price-amount {
+  font-family: var(--font-thai);
+  font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+@media (max-width: 575.98px) {
+  .price-box .btn-luxury-primary {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+/* Carousel dots: thin line visually, 44px hit area */
+.custom-carousel-indicators {
+  margin-bottom: 0;
+}
+
+.custom-carousel-indicators [data-bs-target] {
+  width: 32px;
+  height: 2px;                         /* + 2 x 21px borders = 44px hit area */
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 21px solid transparent;
+  border-bottom: 21px solid transparent;
+  border-left: 6px solid transparent;  /* 32 + 2 x 6 = 44px wide hit area */
+  border-right: 6px solid transparent;
+  background-clip: padding-box;
+  opacity: 1;
+}
+
+/* Room page gallery tiles */
+.photo-strip .gallery-item {
+  height: 280px;
+}
+
+.photo-strip .gallery-item img {
+  height: 100%;
+}
+
+/* Stay info: compact rows on phones */
+@media (max-width: 767.98px) {
+  .stay-info .info-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .stay-info .info-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stay-info .info-icon img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .stay-info .info-card h5 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+.info-card h5,
+.facility-text-wrap h5 {
+  font-weight: 500;
+}
+
 @media (max-width: 767.98px) {
   footer .row {
     --bs-gutter-y: 12px;
