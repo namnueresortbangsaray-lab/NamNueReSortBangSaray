@@ -1003,8 +1003,9 @@ html.scroll-locked body {
 .booking-bar-wrapper {
   position: relative;
   z-index: 20;
-  margin-top: -46px;
-  margin-bottom: 40px;
+  /* Sits fully below the hero so the whole background photo stays visible */
+  margin-top: clamp(16px, 3vw, 40px);
+  margin-bottom: 0;
 }
 
 .booking-bar {
