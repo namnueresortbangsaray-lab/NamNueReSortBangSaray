@@ -44,6 +44,98 @@
   updateNavbar();
 
   // ------------------------------------------------------------------------
+  // Scroll lock shared by the menu and the lightbox
+  // ------------------------------------------------------------------------
+  function lockScroll(on) {
+    root.classList.toggle('scroll-locked', on);
+  }
+
+  // ------------------------------------------------------------------------
+  // Mobile menu: full screen, closes on link tap / Escape / outside tap,
+  // traps focus, locks scroll, restores focus to the toggle.
+  // ------------------------------------------------------------------------
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navbarNav');
+  const desktopMQ = window.matchMedia('(min-width: 992px)');
+
+  if (navToggle && navMenu) {
+    const focusables = () => [navToggle, ...navMenu.querySelectorAll('a[href], button')];
+
+    function setMenu(open, { restoreFocus = true } = {}) {
+      navMenu.classList.toggle('show', open);
+      document.body.classList.toggle('menu-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'ปิดเมนู' : 'เปิดเมนู');
+      lockScroll(open);
+      if (open) {
+        const first = navMenu.querySelector('.nav-link');
+        if (first) first.focus({ preventScroll: true });
+      } else if (restoreFocus) {
+        navToggle.focus({ preventScroll: true });
+      }
+    }
+    const isOpen = () => navMenu.classList.contains('show');
+
+    navToggle.addEventListener('click', () => setMenu(!isOpen()));
+
+    // Any link/button inside the menu closes it (the booking button then
+    // opens its modal through Bootstrap's data API as before).
+    navMenu.addEventListener('click', e => {
+      if (e.target === navMenu) return setMenu(false);           // outside tap
+      if (e.target.closest('a, button')) setMenu(false, { restoreFocus: false });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!isOpen()) return;
+      if (e.key === 'Escape') {
+        setMenu(false);
+      } else if (e.key === 'Tab') {
+        const items = focusables();
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    desktopMQ.addEventListener('change', e => { if (e.matches && isOpen()) setMenu(false, { restoreFocus: false }); });
+  }
+
+  // ------------------------------------------------------------------------
+  // Sticky action bar (mobile/tablet): chat / call / book, one tap anywhere.
+  // TODO(LINE): set the resort's LINE link (e.g. 'https://line.me/R/ti/p/@xxxx')
+  // to swap the chat button from Facebook to LINE. Left empty on purpose:
+  // never invent contact details.
+  // ------------------------------------------------------------------------
+  const LINE_URL = '';
+  const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=100063506773137';
+  const PHONE = { href: 'tel:0897491101', label: '089-749-1101 (คุณนก)' };
+
+  if (document.getElementById('phoneModal')) {
+    const bar = document.createElement('nav');
+    bar.className = 'action-bar';
+    bar.setAttribute('aria-label', 'ติดต่อและจองห้องพัก');
+    const chat = LINE_URL
+      ? `<a class="ab-icon is-line" href="${LINE_URL}" target="_blank" rel="noopener noreferrer" aria-label="แชท LINE"><i class="bi bi-line" aria-hidden="true"></i><span>LINE</span></a>`
+      : `<a class="ab-icon" href="${FACEBOOK_URL}" target="_blank" rel="noopener noreferrer" aria-label="ทักแชท Facebook Page"><i class="bi bi-messenger" aria-hidden="true"></i><span>แชท</span></a>`;
+    bar.innerHTML = chat +
+      `<a class="ab-icon" href="${PHONE.href}" aria-label="โทร ${PHONE.label}"><i class="bi bi-telephone" aria-hidden="true"></i><span>โทร</span></a>` +
+      `<button class="ab-primary" type="button" data-bs-toggle="modal" data-bs-target="#phoneModal"><i class="bi bi-calendar3" aria-hidden="true"></i>จองห้องพัก</button>`;
+    document.body.appendChild(bar);
+    document.body.classList.add('has-action-bar');
+
+    // On the homepage it appears once the hero (which has its own CTAs)
+    // scrolls away; room pages have no hero CTA, so it shows right away.
+    const hero = document.querySelector('.hero-section');
+    if (hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        bar.classList.toggle('is-visible', !entry.isIntersecting);
+      }, { rootMargin: '-35% 0px 0px 0px' }).observe(hero);
+    } else {
+      bar.classList.add('is-visible');
+    }
+  }
+
+  // ------------------------------------------------------------------------
   // Hero tagline "บ้าน ↔ Home" loop (homepage only)
   // ------------------------------------------------------------------------
   const taglineWrap = document.querySelector('.hero-tagline .hand-wrap');
