@@ -39,7 +39,7 @@
   /* Interaction */
   --tap: 44px;
   --nav-h: 60px;
-  --actionbar-h: 64px;
+  --actionbar-h: 68px;
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
   --press: 120ms;
 
@@ -322,6 +322,7 @@ section#Attractions {
 
 /* Hamburger (two hairlines that morph into an X) */
 .custom-navbar .navbar-toggler {
+  flex: 0 0 auto;
   width: var(--tap);
   height: var(--tap);
   margin-right: -10px;
@@ -340,6 +341,12 @@ section#Attractions {
 .custom-navbar.solid-nav .navbar-toggler,
 .menu-open .custom-navbar .navbar-toggler {
   color: var(--text-primary);
+}
+
+@media (min-width: 992px) {
+  .custom-navbar .navbar-toggler {
+    display: none;
+  }
 }
 
 .burger {
@@ -586,7 +593,7 @@ html.scroll-locked body {
   flex: 0 0 auto;
   width: 52px;
   min-height: var(--tap);
-  height: 44px;
+  height: 48px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -616,7 +623,7 @@ html.scroll-locked body {
 .ab-primary {
   flex: 1 1 auto;
   min-height: var(--tap);
-  height: 44px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -707,9 +714,16 @@ html.scroll-locked body {
   overflow: hidden;
 }
 
+/* Keep in sync with the preload links in index.html */
 @media (max-width: 900px) {
   .hero-section {
     background-image: url('/img/bgnamnueresort-1280.webp');
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-image: url('/img/bgnamnueresort-960.webp');
   }
 }
 
@@ -743,7 +757,7 @@ html.scroll-locked body {
 }
 
 .hero-tagline {
-  font-family: var(--font-sans);
+  font-family: var(--font-latin);
   font-size: clamp(1.4rem, 1rem + 1.8vw, 2.4rem);
   font-weight: 300;
   letter-spacing: 0.02em;
@@ -1248,8 +1262,13 @@ html.scroll-locked body {
   border-radius: 0;
 }
 
-.card:hover .card-img-top {
+.card:hover .card-img-top,
+.card:focus-within .card-img-top {
   transform: scale(1.05);
+}
+
+@media (hover: none) {
+  .card:hover .card-img-top { transform: none; }
 }
 
 .card-body {
@@ -2068,9 +2087,35 @@ footer .footer-copy {
   }
 }
 
+/* Smallest phones: keep both headline phrases whole, stack the CTAs */
 @media (max-width: 359.98px) {
-  .hero-title .nowrap {
-    white-space: normal;
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .hero-buttons {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+  }
+}
+
+/* Short landscape phones: drop the decorative logo so the CTAs stay on screen */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-logo-box {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 16px;
+  }
+
+  .hero-buttons {
+    display: flex;
   }
 }
 
@@ -2174,26 +2219,26 @@ footer .footer-copy {
 }
 
 @media (min-width: 576px) {
-  .room-track { grid-auto-columns: 58%; }
+  .room-track { grid-auto-columns: 58%; gap: 16px; }
 }
 
 @media (min-width: 768px) {
+  .room-track { grid-auto-columns: 42%; }
+}
+
+@media (min-width: 992px) {
   .room-track {
     grid-auto-flow: row;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     gap: 24px;
     overflow: visible;
     margin-inline: 0;
     padding: 0;
   }
 
-  .room-track + .track-progress { display: none; }
-}
-
-@media (min-width: 992px) {
-  .room-track { grid-template-columns: repeat(12, 1fr); }
   .room-track > .col { grid-column: span 3; }
   .room-track > .col:nth-child(n + 5) { grid-column: span 4; }
+  .room-track + .track-progress { display: none; }
 }
 
 /* Room cards */
@@ -2945,6 +2990,7 @@ footer .footer-copy {
 }
 
 .custom-carousel-indicators [data-bs-target] {
+  flex: 0 0 auto;
   width: 32px;
   height: 2px;                         /* + 2 x 21px borders = 44px hit area */
   box-sizing: content-box;
@@ -2957,6 +3003,11 @@ footer .footer-copy {
   border-right: 6px solid transparent;
   background-clip: padding-box;
   opacity: 1;
+}
+
+#roomImageCarousel .carousel-control-prev,
+#roomImageCarousel .carousel-control-next {
+  min-width: 52px;
 }
 
 /* Room page gallery tiles */

@@ -330,10 +330,15 @@
       box.appendChild(f);
     }
     box.querySelector('[data-map-load]')?.addEventListener('click', load);
-    if (desktopMQ.matches && 'IntersectionObserver' in window) {
+    let watching = false;
+    function autoLoadOnDesktop() {
+      if (watching || !desktopMQ.matches || !('IntersectionObserver' in window)) return;
+      watching = true;
       const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '300px' });
       io.observe(box);
     }
+    desktopMQ.addEventListener('change', autoLoadOnDesktop);
+    autoLoadOnDesktop();
   });
 
   // ------------------------------------------------------------------------
